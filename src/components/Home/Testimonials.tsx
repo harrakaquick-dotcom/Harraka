@@ -27,7 +27,7 @@ const TestimonialCard = ({
   item: Testimonial;
   tone: string;
 }) => (
-  <figure className="flex w-[min(340px,82vw)] shrink-0 flex-col rounded-card border border-ink/12 bg-surface p-6 transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-[0_18px_30px_-20px_rgb(23_18_15/0.35)]">
+  <figure className="flex w-[min(340px,82vw)] shrink-0 flex-col rounded-card border border-ink/12 bg-surface p-6 transition-[translate,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-[0_18px_30px_-20px_rgb(23_18_15/0.35)]">
     <div className="flex items-center justify-between gap-3">
       <span className="grid size-10 place-items-center rounded-full bg-ink text-primary">
         <Quote className="size-4.5 fill-current" />

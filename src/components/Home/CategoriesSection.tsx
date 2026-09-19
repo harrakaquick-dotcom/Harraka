@@ -80,7 +80,7 @@ const CategoriesSection = () => {
                 </span>
                 <span className="mt-1 flex items-center justify-between font-mono text-[10px] uppercase tracking-[.08em] text-ink/55">
                   {category.count} items
-                  <ArrowUpRight className="size-4 text-ink/30 transition-[transform,color] duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-ink" />
+                  <ArrowUpRight className="size-4 text-ink/30 transition-[translate,color] duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-ink" />
                 </span>
               </span>
             </Link>

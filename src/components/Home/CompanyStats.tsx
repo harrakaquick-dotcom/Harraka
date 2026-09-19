@@ -49,7 +49,7 @@ const CompanyStats = () => {
         return (
           <div
             key={stat.id}
-            className="rounded-card border border-ink/10 bg-surface p-4 transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-[0_18px_30px_-20px_rgb(23_18_15/0.35)] sm:p-5"
+            className="rounded-card border border-ink/10 bg-surface p-4 transition-[translate,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-[0_18px_30px_-20px_rgb(23_18_15/0.35)] sm:p-5"
           >
             <span className="grid size-9 place-items-center rounded-xl bg-primary-light text-primary-dark">
               <Icon className="size-4.5" />
