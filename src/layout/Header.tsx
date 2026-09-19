@@ -26,11 +26,13 @@ const Header = () => {
       <TopNav />
       <div className="relative flex w-full items-center justify-between p-3 lg:pr-6">
         <span className="flex items-center">
-          <img
-            src="./icons/harraka_logo_with_text.png"
-            alt="app logo"
-            className="h-auto w-36 sm:w-45"
-          />
+          <Link to={"/"}>
+            <img
+              src="./icons/harraka_logo_with_text.png"
+              alt="app logo"
+              className="h-auto w-36 sm:w-45"
+            />
+          </Link>
           <span className="hidden items-center lg:flex">
             {navlists.map((navItem) => (
               <span key={navItem} className="m-2">
@@ -102,8 +104,11 @@ const TopNav = () => {
         <span className="live-dot" aria-hidden="true" />
         <h3 className="truncate">Free delivery on your first three orders</h3>
       </span>
-      <span className="hidden whitespace-nowrap md:block">
-        {location} · 07:00 – 23:00 daily · phone : {phone_number}
+      <span className="hidden items-center gap-2.5 whitespace-nowrap md:flex">
+        {/* <span className="loc-dot" aria-hidden="true" /> */}
+        <span>
+          {location} · 07:00 – 23:00 daily · phone : {phone_number}
+        </span>
       </span>
     </div>
   );

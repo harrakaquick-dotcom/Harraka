@@ -1,5 +1,5 @@
 import { address, email_address, phone_number } from "../Data/Appdata";
-
+import { NavLink } from "react-router-dom";
 const columns = [
   {
     title: "Shop",
@@ -36,11 +36,13 @@ const Footer = () => {
       <div className="mx-auto max-w-7xl px-[clamp(16px,4vw,44px)] py-[clamp(34px,4vw,60px)]">
         <div className="grid grid-cols-2 gap-x-6 gap-y-9 sm:grid-cols-3 sm:gap-7 lg:grid-cols-4">
           <div className="col-span-2 sm:col-span-3 lg:col-span-1">
-            <img
-              src="./icons/harraka_logo_with_white_text.png"
-              alt="Harraka"
-              width={130}
-            />
+            <NavLink to={"/"}>
+              <img
+                src="./icons/harraka_logo_with_white_text.png"
+                alt="Harraka"
+                width={130}
+              />
+            </NavLink>
             <p className="mt-3.5 max-w-[28ch] text-[13.5px] leading-[1.6]">
               {address.map((line) => (
                 <span key={line} className="block">
@@ -58,7 +60,9 @@ const Footer = () => {
           {columns.map((column) => (
             <div
               key={column.title}
-              className={column.title === "Legal" ? "col-span-2 sm:col-span-1" : ""}
+              className={
+                column.title === "Legal" ? "col-span-2 sm:col-span-1" : ""
+              }
             >
               <div className="font-mono text-[10px] uppercase tracking-[.13em] text-onink/40">
                 {column.title}

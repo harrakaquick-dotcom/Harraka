@@ -61,3 +61,47 @@
     }
   }
 }
+
+/* Location dot — a green "you are here" marker: steady halo + a radar ring
+   sweeping outward, so it reads as a place, not a status like .live-dot. */
+@layer components {
+  .loc-dot {
+    position: relative;
+    display: inline-block;
+    width: 0.5rem;
+    height: 0.5rem;
+    flex-shrink: 0;
+    border-radius: 9999px;
+    background: var(--color-secondary);
+    box-shadow:
+      0 0 0 3px rgb(31 170 89 / 0.22),
+      0 0 10px 1px rgb(31 170 89 / 0.5);
+  }
+  .loc-dot::before {
+    content: "";
+    position: absolute;
+    inset: -3px;
+    border: 1.5px solid var(--color-secondary);
+    border-radius: inherit;
+    opacity: 0;
+    animation: loc-dot-radar 2.4s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+
+  @keyframes loc-dot-radar {
+    0% {
+      transform: scale(0.6);
+      opacity: 0.9;
+    }
+    70%,
+    100% {
+      transform: scale(2.6);
+      opacity: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .loc-dot::before {
+      animation: none;
+    }
+  }
+}

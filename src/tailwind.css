@@ -223,6 +223,13 @@
   ::selection {
     background: var(--color-primary-light);
   }
+  /* Dark (bg-ink) sections — the light tint would vanish, so use a champagne
+     gold with ink text (selection-only colour, deliberately not a brand token) */
+  .bg-ink::selection,
+  .bg-ink ::selection {
+    background: #d8a892;
+    color: var(--color-ink);
+  }
 }
 
 
