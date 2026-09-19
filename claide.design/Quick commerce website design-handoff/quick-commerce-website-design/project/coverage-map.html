@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Harraka coverage — Nairobi</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous"></script>
+<style>
+  html,body{margin:0;height:100%;background:#FBF7F4;font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace}
+  #map{position:absolute;inset:0}
+  .leaflet-container{background:#F1ECE7}
+  .leaflet-control-attribution{font:10px/1.4 ui-monospace,Menlo,monospace;background:rgba(251,247,244,.85)}
+  .hk-pin{display:flex;align-items:center;gap:6px;white-space:nowrap;transform:translate(-9px,-9px)}
+  .hk-dot{width:10px;height:10px;border-radius:50%;background:#E8442A;box-shadow:0 0 0 4px rgba(232,68,42,.18)}
+  .hk-lbl{font:600 10px/1 ui-monospace,Menlo,monospace;letter-spacing:.04em;color:#17120F;background:rgba(251,247,244,.92);padding:3px 5px;border-radius:3px}
+  .hk-legend{background:rgba(251,247,244,.94);border:1px solid rgba(23,18,15,.12);border-radius:6px;padding:9px 11px;font:10px/1.6 ui-monospace,Menlo,monospace;color:#17120F;letter-spacing:.03em}
+  .hk-legend b{display:block;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:rgba(23,18,15,.5);margin-bottom:5px;font-weight:600}
+  .hk-sw{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+</style>
+</head>
+<body>
+<div id="map"></div>
+<script>
+  var hubs = [
+    { n: "Westlands",    c: [-1.2649, 36.8035], r: 1500, live: true },
+    { n: "Parklands",    c: [-1.2620, 36.8215], r: 1300, live: true },
+    { n: "Kilimani",     c: [-1.2905, 36.7830], r: 1600, live: true },
+    { n: "Kileleshwa",   c: [-1.2820, 36.7770], r: 1200, live: true },
+    { n: "Lavington",    c: [-1.2780, 36.7660], r: 1400, live: true },
+    { n: "CBD",          c: [-1.2841, 36.8233], r: 1400, live: true },
+    { n: "Upper Hill",   c: [-1.2960, 36.8095], r: 1100, live: true },
+    { n: "Gigiri",       c: [-1.2330, 36.8100], r: 1400, live: false },
+    { n: "Runda",        c: [-1.2185, 36.8030], r: 1500, live: false },
+    { n: "Karen",        c: [-1.3230, 36.7110], r: 2000, live: false },
+    { n: "South B",      c: [-1.3080, 36.8360], r: 1400, live: false },
+    { n: "Langata",      c: [-1.3480, 36.7560], r: 1600, live: false }
+  ];
+
+  var map = L.map("map", { zoomControl: false, scrollWheelZoom: false, attributionControl: true })
+    .setView([-1.2790, 36.7960], 12);
+  L.control.zoom({ position: "bottomright" }).addTo(map);
+  L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution: "© OpenStreetMap contributors", maxZoom: 18, opacity: 0.55
+  }).addTo(map);
+
+  hubs.forEach(function (h) {
+    var col = h.live ? "#E8442A" : "#1FAA59";
+    L.circle(h.c, {
+      radius: h.r, color: col, weight: 1.25, opacity: 0.75,
+      fillColor: col, fillOpacity: h.live ? 0.14 : 0.08,
+      dashArray: h.live ? null : "4 4"
+    }).addTo(map).bindTooltip(
+      h.n + " · " + (h.live ? "live now" : "Q4 2026"),
+      { direction: "top", offset: [0, -4] }
+    );
+    L.marker(h.c, {
+      icon: L.divIcon({
+        className: "",
+        html: '<div class="hk-pin"><span class="hk-dot" style="background:' + col +
+              ';box-shadow:0 0 0 4px ' + (h.live ? "rgba(232,68,42,.18)" : "rgba(31,170,89,.18)") +
+              '"></span><span class="hk-lbl">' + h.n.toUpperCase() + "</span></div>",
+        iconSize: null
+      })
+    }).addTo(map);
+  });
+
+  var legend = L.control({ position: "topleft" });
+  legend.onAdd = function () {
+    var d = L.DomUtil.create("div", "hk-legend");
+    d.innerHTML = "<b>Nairobi coverage</b>" +
+      '<span class="hk-sw" style="background:#E8442A"></span>Live · 10-min zones<br>' +
+      '<span class="hk-sw" style="background:#1FAA59"></span>Opening Q4 2026';
+    return d;
+  };
+  legend.addTo(map);
+</script>
+</body>
+</html>

@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:#FBF7F4;color:#17120F;font-family:Archivo,"Helvetica Neue",Helvetica,sans-serif;-webkit-font-smoothing:antialiased;text-wrap:pretty}
+  a{color:#B8301A;text-decoration:none}
+  a:hover{color:#E8442A}
+  ::selection{background:#FDEDE9}
+  @keyframes hk-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  @keyframes hk-pulse{0%{box-shadow:0 0 0 0 rgba(232,68,42,.45)}70%{box-shadow:0 0 0 12px rgba(232,68,42,0)}100%{box-shadow:0 0 0 0 rgba(232,68,42,0)}}
+  @keyframes hk-ride{0%{left:0}100%{left:calc(100% - 26px)}}
+  @keyframes hk-rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  @media (max-width:900px){[data-nav-desktop]{display:none!important}[data-nav-toggle]{display:flex!important}[data-hide-sm]{display:none!important}[data-spacer-sm]{display:block}}
+  @media (max-width:760px){iframe{height:320px!important}}
+</style>
+</helmet>
+
+<div style="max-width:100%;overflow-x:hidden">
+<dc-import name="Site Header" active="home" hint-size="100%,120px"></dc-import>
+
+<section id="top" style="border-bottom:1px solid rgba(23,18,15,.1)">
+  <div style="max-width:1280px;margin:0 auto;padding:10px clamp(16px,4vw,44px) 0;display:flex;justify-content:flex-end;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase">
+    <span style="color:rgba(23,18,15,.4);align-self:center;margin-right:4px">hero</span>
+    <button onClick="{{ pickSplit }}" style="border:1px solid {{ splitBorder }};background:{{ splitBg }};color:{{ splitFg }};border-radius:999px;padding:5px 11px;font:inherit;cursor:pointer">01 split</button>
+    <button onClick="{{ pickType }}" style="border:1px solid {{ typeBorder }};background:{{ typeBg }};color:{{ typeFg }};border-radius:999px;padding:5px 11px;font:inherit;cursor:pointer">02 type</button>
+    <button onClick="{{ pickDark }}" style="border:1px solid {{ darkBorder }};background:{{ darkBg }};color:{{ darkFg }};border-radius:999px;padding:5px 11px;font:inherit;cursor:pointer">03 night</button>
+  </div>
+
+  <sc-if value="{{ heroSplit }}" hint-placeholder-val="{{ true }}">
+  <div style="max-width:1280px;margin:0 auto;padding:clamp(28px,5vw,64px) clamp(16px,4vw,44px) clamp(36px,5vw,72px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:clamp(28px,4vw,56px);align-items:center">
+    <div>
+      <div style="display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(232,68,42,.3);background:#FDEDE9;border-radius:999px;padding:6px 13px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:#B8301A">
+        <span style="width:7px;height:7px;border-radius:50%;background:#E8442A;animation:hk-pulse 2s infinite"></span>
+        Now live in Nairobi
+      </div>
+      <h1 style="margin:22px 0 0;font-size:clamp(40px,6.4vw,78px);line-height:.94;letter-spacing:-.045em;font-weight:700">Your dukas,<br>ten minutes<br>from your door.</h1>
+      <p style="margin:22px 0 0;max-width:46ch;font-size:clamp(16px,1.3vw,19px);line-height:1.55;color:rgba(23,18,15,.68)">Harraka stocks the everyday basket — fresh produce, milk, bread, home care — in dark stores across Nairobi. Order in seconds, pay on delivery or M-Pesa, and pay less than the shop on your street.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:30px">
+        <a href="Harraka Shop.dc.html" style="background:#E8442A;color:#fff;border-radius:999px;padding:14px 26px;font-size:15px;font-weight:600" style-hover="background:#B8301A">Start an order</a>
+        <a href="#coverage" style="border:1px solid rgba(23,18,15,.2);color:#17120F;border-radius:999px;padding:14px 26px;font-size:15px;font-weight:600" style-hover="border-color:#17120F">See coverage</a>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:clamp(18px,3vw,40px);margin-top:36px;padding-top:26px;border-top:1px solid rgba(23,18,15,.12)">
+        <div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:clamp(22px,2.4vw,30px);font-weight:600;letter-spacing:-.02em">{{ clock }}</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:rgba(23,18,15,.45);margin-top:4px">average delivery, live</div>
+        </div>
+        <div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:clamp(22px,2.4vw,30px);font-weight:600;letter-spacing:-.02em">2,400+</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:rgba(23,18,15,.45);margin-top:4px">items in stock</div>
+        </div>
+        <div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:clamp(22px,2.4vw,30px);font-weight:600;letter-spacing:-.02em">KSh 0</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:rgba(23,18,15,.45);margin-top:4px">delivery over KSh 700</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex;justify-content:center">
+      <div style="width:min(330px,100%);border:10px solid #17120F;border-radius:44px;background:#fff;box-shadow:0 30px 60px -28px rgba(23,18,15,.42);overflow:hidden">
+        <div style="background:#17120F;color:#FBF7F4;padding:9px 20px 13px;display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.06em">
+          <span>9:41</span><span>Nairobi · 4G</span>
+        </div>
+        <div style="padding:18px 18px 22px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:rgba(23,18,15,.45)">Order #HK-4417</div>
+          <div style="font-size:23px;font-weight:700;letter-spacing:-.03em;margin-top:6px">Arriving in {{ mins }} min</div>
+          <div style="position:relative;height:26px;margin:16px 0 4px">
+            <div style="position:absolute;top:12px;left:0;right:0;height:2px;background:rgba(23,18,15,.12)"></div>
+            <div style="position:absolute;top:12px;left:0;height:2px;background:#E8442A;width:{{ progress }}"></div>
+            <div style="position:absolute;top:4px;left:{{ progress }};width:18px;height:18px;margin-left:-9px;border-radius:50%;background:#E8442A;border:3px solid #fff;box-shadow:0 2px 8px rgba(232,68,42,.5);transition:left .9s linear"></div>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:rgba(23,18,15,.42)">
+            <span>Packed</span><span>On the road</span><span>At your gate</span>
+          </div>
+          <div style="margin-top:18px;border:1px solid rgba(23,18,15,.12);border-radius:14px;padding:13px;display:flex;align-items:center;gap:11px">
+            <span style="width:36px;height:36px;border-radius:50%;background:#FDEDE9;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:#B8301A">BK</span>
+            <div style="flex:1">
+              <div style="font-size:13.5px;font-weight:600">Brian K.</div>
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:rgba(23,18,15,.5)">Rider · KDE 442Q</div>
+            </div>
+            <span style="border:1px solid rgba(23,18,15,.16);border-radius:999px;padding:5px 10px;font-family:'IBM Plex Mono',monospace;font-size:10px">Call</span>
+          </div>
+          <div style="margin-top:14px;border-top:1px dashed rgba(23,18,15,.18);padding-top:13px">
+            <div style="display:flex;justify-content:space-between;font-size:13px;color:rgba(23,18,15,.7);margin-bottom:6px"><span>Fresh milk 1L × 2</span><span style="font-family:'IBM Plex Mono',monospace">150</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:13px;color:rgba(23,18,15,.7);margin-bottom:6px"><span>Sukuma wiki bunch</span><span style="font-family:'IBM Plex Mono',monospace">30</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:13px;color:rgba(23,18,15,.7);margin-bottom:10px"><span>Brown bread 400g</span><span style="font-family:'IBM Plex Mono',monospace">65</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:14.5px;font-weight:700"><span>Total</span><span style="font-family:'IBM Plex Mono',monospace">KSh 245</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+
+  <sc-if value="{{ heroType }}" hint-placeholder-val="{{ false }}">
+  <div style="max-width:1280px;margin:0 auto;padding:clamp(36px,6vw,84px) clamp(16px,4vw,44px) clamp(28px,4vw,56px);text-align:center">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#B8301A">Nairobi · live now · {{ clock }} average</div>
+    <h1 style="margin:18px auto 0;max-width:15ch;font-size:clamp(52px,11vw,150px);line-height:.85;letter-spacing:-.06em;font-weight:800">Ten minute groceries</h1>
+    <p style="margin:26px auto 0;max-width:52ch;font-size:clamp(16px,1.3vw,19px);line-height:1.55;color:rgba(23,18,15,.68)">Cheaper than the shop on your street, at your door before the kettle boils. Dark stores across the city, stocked with the 2,400 things you actually buy.</p>
+    <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:28px">
+      <a href="Harraka Shop.dc.html" style="background:#E8442A;color:#fff;border-radius:999px;padding:14px 26px;font-size:15px;font-weight:600" style-hover="background:#B8301A">Start an order</a>
+      <a href="#download" style="border:1px solid rgba(23,18,15,.2);color:#17120F;border-radius:999px;padding:14px 26px;font-size:15px;font-weight:600" style-hover="border-color:#17120F">Get the app</a>
+    </div>
+  </div>
+  </sc-if>
+
+  <sc-if value="{{ heroDark }}" hint-placeholder-val="{{ false }}">
+  <div style="background:#17120F;color:#FBF7F4">
+    <div style="max-width:1280px;margin:0 auto;padding:clamp(36px,5vw,76px) clamp(16px,4vw,44px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(24px,4vw,52px);align-items:end">
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#E8442A">Harraka · Nairobi</div>
+        <div style="font-size:clamp(120px,22vw,260px);line-height:.8;font-weight:800;letter-spacing:-.07em;margin:14px 0 0">10<span style="font-size:.22em;letter-spacing:0;font-weight:500;font-family:'IBM Plex Mono',monospace;vertical-align:top;margin-left:.1em">min</span></div>
+        <p style="margin:24px 0 0;max-width:40ch;font-size:clamp(16px,1.3vw,19px);line-height:1.55;color:rgba(251,247,244,.66)">That is the whole promise. Everyday groceries, cheaper than your corner shop, at your gate in the time it takes to boil a kettle.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:28px">
+          <a href="Harraka Shop.dc.html" style="background:#E8442A;color:#fff;border-radius:999px;padding:14px 26px;font-size:15px;font-weight:600" style-hover="background:#FBF7F4;color:#17120F">Start an order</a>
+          <a href="#numbers" style="border:1px solid rgba(251,247,244,.28);color:#FBF7F4;border-radius:999px;padding:14px 26px;font-size:15px;font-weight:600" style-hover="border-color:#FBF7F4">Investor brief</a>
+        </div>
+      </div>
+      <div style="display:grid;gap:1px;background:rgba(251,247,244,.16);border:1px solid rgba(251,247,244,.16)">
+        <div style="background:#17120F;padding:20px 22px"><div style="font-family:'IBM Plex Mono',monospace;font-size:clamp(24px,3vw,38px);font-weight:600">{{ clock }}</div><div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:rgba(251,247,244,.45);margin-top:6px">rolling average today</div></div>
+        <div style="background:#17120F;padding:20px 22px"><div style="font-family:'IBM Plex Mono',monospace;font-size:clamp(24px,3vw,38px);font-weight:600">7 zones</div><div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:rgba(251,247,244,.45);margin-top:6px">live across Nairobi</div></div>
+        <div style="background:#17120F;padding:20px 22px"><div style="font-family:'IBM Plex Mono',monospace;font-size:clamp(24px,3vw,38px);font-weight:600">KSh 245</div><div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:rgba(251,247,244,.45);margin-top:6px">median basket</div></div>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+</section>
+
+<div style="border-bottom:1px solid rgba(23,18,15,.1);overflow:hidden;background:#fff">
+  <div style="display:flex;width:max-content;animation:hk-marquee 34s linear infinite">
+    <div style="display:flex;gap:44px;padding:13px 22px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(23,18,15,.5);white-space:nowrap">
+      <span>Fresh produce</span><span>·</span><span>Milk &amp; eggs</span><span>·</span><span>Bread daily</span><span>·</span><span>Unga &amp; rice</span><span>·</span><span>Cooking oil</span><span>·</span><span>Home care</span><span>·</span><span>Baby</span><span>·</span><span>Cold drinks</span><span>·</span><span>Airtime</span><span>·</span>
+    </div>
+    <div style="display:flex;gap:44px;padding:13px 22px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(23,18,15,.5);white-space:nowrap">
+      <span>Fresh produce</span><span>·</span><span>Milk &amp; eggs</span><span>·</span><span>Bread daily</span><span>·</span><span>Unga &amp; rice</span><span>·</span><span>Cooking oil</span><span>·</span><span>Home care</span><span>·</span><span>Baby</span><span>·</span><span>Cold drinks</span><span>·</span><span>Airtime</span><span>·</span>
+    </div>
+  </div>
+</div>
+
+<section style="max-width:1280px;margin:0 auto;padding:clamp(22px,3vw,34px) clamp(16px,4vw,44px);display:flex;flex-wrap:wrap;align-items:center;gap:clamp(18px,3vw,40px)" data-reveal="1">
+  <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:rgba(23,18,15,.38)">As covered in</span>
+  <div style="display:flex;flex-wrap:wrap;gap:clamp(16px,3vw,38px);align-items:center;flex:1">
+    <span style="font-size:17px;font-weight:700;letter-spacing:-.02em;color:rgba(23,18,15,.34)">Business Daily</span>
+    <span style="font-size:17px;font-weight:700;letter-spacing:-.02em;color:rgba(23,18,15,.34)">TechCabal</span>
+    <span style="font-size:17px;font-weight:700;letter-spacing:-.02em;color:rgba(23,18,15,.34)">The Standard</span>
+    <span style="font-size:17px;font-weight:700;letter-spacing:-.02em;color:rgba(23,18,15,.34)">Disrupt Africa</span>
+    <span style="font-size:17px;font-weight:700;letter-spacing:-.02em;color:rgba(23,18,15,.34)">Nation</span>
+  </div>
+  <span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:rgba(23,18,15,.3)">placeholder wordmarks — swap for real logos</span>
+</section>
+
+<section style="border-top:1px solid rgba(23,18,15,.1);background:#fff">
+  <div style="max-width:1280px;margin:0 auto;padding:clamp(40px,6vw,84px) clamp(16px,4vw,44px)">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px" data-reveal="1">
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#B8301A">01 — Shop</div>
+        <h2 style="margin:12px 0 0;font-size:clamp(30px,4.2vw,52px);line-height:1;letter-spacing:-.04em;font-weight:700">The everyday basket</h2>
+      </div>
+      <a href="Harraka Shop.dc.html" style="border:1px solid rgba(23,18,15,.2);color:#17120F;border-radius:999px;padding:13px 24px;font-size:14.5px;font-weight:600" style-hover="border-color:#17120F">Browse all 2,400 items</a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin-top:30px" data-reveal="1">
+      <sc-for list="{{ cats }}" as="c" hint-placeholder-count="8">
+        <a href="Harraka Shop.dc.html" style="text-decoration:none;border:1px solid rgba(23,18,15,.12);background:#FBF7F4;border-radius:16px;padding:16px 15px 14px;display:flex;flex-direction:column;gap:22px;min-height:118px;transition:transform .25s cubic-bezier(.2,.7,.2,1),border-color .2s" style-hover="transform:translateY(-3px);border-color:#E8442A">
+          <span style="width:30px;height:30px;border-radius:9px;background:{{ c.chip }};display:block"></span>
+          <span>
+            <span style="display:block;font:600 15px Archivo,sans-serif;color:#17120F;letter-spacing:-.015em">{{ c.name }}</span>
+            <span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:rgba(23,18,15,.45);margin-top:4px">{{ c.count }} items</span>
+          </span>
+        </a>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="how" style="border-top:1px solid rgba(23,18,15,.1)">
+  <div style="max-width:1280px;margin:0 auto;padding:clamp(40px,6vw,84px) clamp(16px,4vw,44px)">
+    <div data-reveal="1">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#B8301A">02 — How it works</div>
+      <h2 style="margin:12px 0 0;font-size:clamp(30px,4.2vw,52px);line-height:1;letter-spacing:-.04em;font-weight:700;max-width:22ch">Three dark stores, one ten-minute radius</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:1px;background:rgba(23,18,15,.12);border:1px solid rgba(23,18,15,.12);border-radius:20px;overflow:hidden;margin-top:34px" data-reveal="1">
+      <div style="background:#FBF7F4;padding:clamp(22px,3vw,34px)">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:34px;font-weight:600;color:#E8442A;letter-spacing:-.03em">01</div>
+        <h3 style="margin:16px 0 0;font-size:20px;font-weight:700;letter-spacing:-.025em">You order</h3>
+        <p style="margin:9px 0 0;font-size:15px;line-height:1.55;color:rgba(23,18,15,.62)">Pick from the 2,400 items your neighbourhood store actually holds. M-Pesa, card, or cash at the gate.</p>
+      </div>
+      <div style="background:#FBF7F4;padding:clamp(22px,3vw,34px)">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:34px;font-weight:600;color:#E8442A;letter-spacing:-.03em">02</div>
+        <h3 style="margin:16px 0 0;font-size:20px;font-weight:700;letter-spacing:-.025em">We pick in 90 seconds</h3>
+        <p style="margin:9px 0 0;font-size:15px;line-height:1.55;color:rgba(23,18,15,.62)">Every store sits inside a 2km radius of the homes it serves, laid out so a picker never walks more than 30 metres.</p>
+      </div>
+      <div style="background:#FBF7F4;padding:clamp(22px,3vw,34px)">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:34px;font-weight:600;color:#E8442A;letter-spacing:-.03em">03</div>
+        <h3 style="margin:16px 0 0;font-size:20px;font-weight:700;letter-spacing:-.025em">A rider brings it</h3>
+        <p style="margin:9px 0 0;font-size:15px;line-height:1.55;color:rgba(23,18,15,.62)">Salaried riders on electric bikes, tracked door to door. Average across Nairobi today: {{ clock }}.</p>
+        <div style="position:relative;height:26px;margin-top:20px;border-top:1px dashed rgba(23,18,15,.25)">
+          <span style="position:absolute;top:8px;width:26px;height:14px;border-radius:4px;background:#E8442A;animation:hk-ride 5.5s cubic-bezier(.45,0,.55,1) infinite alternate"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="coverage" style="border-top:1px solid rgba(23,18,15,.1);background:#fff">
+  <div style="max-width:1280px;margin:0 auto;padding:clamp(40px,6vw,84px) clamp(16px,4vw,44px)">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px" data-reveal="1">
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#B8301A">03 — Coverage</div>
+        <h2 style="margin:12px 0 0;font-size:clamp(30px,4.2vw,52px);line-height:1;letter-spacing:-.04em;font-weight:700">Nairobi, zone by zone</h2>
+      </div>
+      <p style="margin:0;max-width:38ch;font-size:15.5px;line-height:1.55;color:rgba(23,18,15,.6)">Seven zones live today. Five more open as the Q4 stores come online. Karen and Langata are next.</p>
+    </div>
+    <div style="margin-top:30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:20px;align-items:start" data-reveal="1">
+      <div style="grid-column:span 2;min-width:0;border:1px solid rgba(23,18,15,.14);border-radius:20px;overflow:hidden;background:#F1ECE7">
+        <iframe src="coverage-map.html" title="Harraka Nairobi coverage map" style="width:100%;height:min(62vh,480px);border:0;display:block"></iframe>
+      </div>
+      <div style="border:1px solid rgba(23,18,15,.14);border-radius:20px;padding:20px 22px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:rgba(23,18,15,.45)">Live zones</div>
+        <div style="display:flex;flex-direction:column;gap:11px;margin-top:14px">
+          <div style="display:flex;justify-content:space-between;font-size:14.5px"><span>Westlands</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#B8301A">8 min</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:14.5px"><span>Parklands</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#B8301A">9 min</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:14.5px"><span>Kilimani</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#B8301A">10 min</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:14.5px"><span>Kileleshwa</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#B8301A">10 min</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:14.5px"><span>Lavington</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#B8301A">11 min</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:14.5px"><span>CBD</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#B8301A">9 min</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:14.5px"><span>Upper Hill</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#B8301A">10 min</span></div>
+        </div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:rgba(23,18,15,.45);margin-top:22px;padding-top:16px;border-top:1px solid rgba(23,18,15,.12)">Opening Q4 2026</div>
+        <div style="display:flex;flex-wrap:wrap;gap:7px;margin-top:12px">
+          <span style="border:1px solid rgba(31,170,89,.4);background:#E6F7ED;color:#0F7A3C;border-radius:999px;padding:5px 11px;font-family:'IBM Plex Mono',monospace;font-size:10.5px">Karen</span>
+          <span style="border:1px solid rgba(31,170,89,.4);background:#E6F7ED;color:#0F7A3C;border-radius:999px;padding:5px 11px;font-family:'IBM Plex Mono',monospace;font-size:10.5px">Langata</span>
+          <span style="border:1px solid rgba(31,170,89,.4);background:#E6F7ED;color:#0F7A3C;border-radius:999px;padding:5px 11px;font-family:'IBM Plex Mono',monospace;font-size:10.5px">Runda</span>
+          <span style="border:1px solid rgba(31,170,89,.4);background:#E6F7ED;color:#0F7A3C;border-radius:999px;padding:5px 11px;font-family:'IBM Plex Mono',monospace;font-size:10.5px">Gigiri</span>
+          <span style="border:1px solid rgba(31,170,89,.4);background:#E6F7ED;color:#0F7A3C;border-radius:999px;padding:5px 11px;font-family:'IBM Plex Mono',monospace;font-size:10.5px">South B</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="numbers" style="background:#17120F;color:#FBF7F4">
+  <div style="max-width:1280px;margin:0 auto;padding:clamp(40px,6vw,84px) clamp(16px,4vw,44px)">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px" data-reveal="1">
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#E8442A">04 — For investors &amp; partners</div>
+        <h2 style="margin:12px 0 0;font-size:clamp(30px,4.2vw,52px);line-height:1;letter-spacing:-.04em;font-weight:700;max-width:24ch">A dark-store model built for African unit economics</h2>
+      </div>
+      <a href="Harraka Contact.dc.html" style="border:1px solid rgba(251,247,244,.3);color:#FBF7F4;border-radius:999px;padding:13px 24px;font-size:14.5px;font-weight:600" style-hover="border-color:#FBF7F4">Request the deck</a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:1px;background:rgba(251,247,244,.16);border:1px solid rgba(251,247,244,.16);margin-top:34px" data-reveal="1">
+      <div style="background:#17120F;padding:clamp(20px,2.6vw,30px)"><div style="font-family:'IBM Plex Mono',monospace;font-size:clamp(28px,3.4vw,44px);font-weight:600;letter-spacing:-.03em">3.4×</div><div style="font-size:14px;color:rgba(251,247,244,.6);margin-top:8px;line-height:1.5">orders per customer, per month</div></div>
+      <div style="background:#17120F;padding:clamp(20px,2.6vw,30px)"><div style="font-family:'IBM Plex Mono',monospace;font-size:clamp(28px,3.4vw,44px);font-weight:600;letter-spacing:-.03em">KSh 245</div><div style="font-size:14px;color:rgba(251,247,244,.6);margin-top:8px;line-height:1.5">median basket, up 18% since launch</div></div>
+      <div style="background:#17120F;padding:clamp(20px,2.6vw,30px)"><div style="font-family:'IBM Plex Mono',monospace;font-size:clamp(28px,3.4vw,44px);font-weight:600;letter-spacing:-.03em">62%</div><div style="font-size:14px;color:rgba(251,247,244,.6);margin-top:8px;line-height:1.5">month-two customer retention</div></div>
+      <div style="background:#17120F;padding:clamp(20px,2.6vw,30px)"><div style="font-family:'IBM Plex Mono',monospace;font-size:clamp(28px,3.4vw,44px);font-weight:600;letter-spacing:-.03em">11 wks</div><div style="font-size:14px;color:rgba(251,247,244,.6);margin-top:8px;line-height:1.5">to store-level contribution positive</div></div>
+    </div>
+    <p style="margin:16px 0 0;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.06em;color:rgba(251,247,244,.38)">Pilot figures from the Nairobi stores — confirm and date these before publishing.</p>
+  </div>
+</section>
+
+<section style="border-top:1px solid rgba(23,18,15,.1)">
+  <div style="max-width:1280px;margin:0 auto;padding:clamp(40px,6vw,84px) clamp(16px,4vw,44px)">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#B8301A" data-reveal="1">05 — Customers</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr));gap:18px;margin-top:26px" data-reveal="1">
+      <figure style="margin:0;border:1px solid rgba(23,18,15,.12);border-radius:20px;padding:24px;background:#fff">
+        <blockquote style="margin:0;font-size:clamp(17px,1.5vw,21px);line-height:1.4;letter-spacing:-.02em;font-weight:500">“I stopped keeping a shopping list. Whatever runs out gets ordered, and it beats me to the kitchen.”</blockquote>
+        <figcaption style="margin-top:18px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:rgba(23,18,15,.5)">Achieng' O. · Kilimani · 14 orders</figcaption>
+      </figure>
+      <figure style="margin:0;border:1px solid rgba(23,18,15,.12);border-radius:20px;padding:24px;background:#fff">
+        <blockquote style="margin:0;font-size:clamp(17px,1.5vw,21px);line-height:1.4;letter-spacing:-.02em;font-weight:500">“Two kids, one Saturday. The weekly top-up used to cost me an afternoon in traffic.”</blockquote>
+        <figcaption style="margin-top:18px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:rgba(23,18,15,.5)">Peter M. · Westlands · 31 orders</figcaption>
+      </figure>
+      <figure style="margin:0;border:1px solid rgba(23,18,15,.12);border-radius:20px;padding:24px;background:#fff">
+        <blockquote style="margin:0;font-size:clamp(17px,1.5vw,21px);line-height:1.4;letter-spacing:-.02em;font-weight:500">“Milk at eleven at night, at the price the duka charges at noon. That is the whole review.”</blockquote>
+        <figcaption style="margin-top:18px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:rgba(23,18,15,.5)">Faith W. · Parklands · 9 orders</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section style="border-top:1px solid rgba(23,18,15,.1);background:#FDEDE9">
+  <div style="max-width:1280px;margin:0 auto;padding:clamp(40px,6vw,84px) clamp(16px,4vw,44px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:clamp(24px,4vw,48px);align-items:center">
+    <div data-reveal="1">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#B8301A">06 — The company</div>
+      <h2 style="margin:12px 0 0;font-size:clamp(30px,4.2vw,52px);line-height:1;letter-spacing:-.04em;font-weight:700;max-width:22ch">Built in Nairobi, run by 214 people</h2>
+      <p style="margin:18px 0 0;max-width:46ch;font-size:16px;line-height:1.55;color:rgba(23,18,15,.68)">Three dark stores, 120 salaried riders, and farm contracts in Kiambu and Nakuru. Our story, our standards, and the roles we are hiring for.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:26px">
+        <a href="Harraka About.dc.html" style="background:#17120F;color:#FBF7F4;border-radius:999px;padding:14px 26px;font-size:15px;font-weight:600" style-hover="background:#E8442A">About Harraka</a>
+        <a href="Harraka About.dc.html#riders" style="border:1px solid rgba(23,18,15,.2);color:#17120F;border-radius:999px;padding:14px 26px;font-size:15px;font-weight:600" style-hover="border-color:#17120F">Ride with us</a>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,130px),1fr));gap:1px;background:rgba(23,18,15,.14);border:1px solid rgba(23,18,15,.14);border-radius:20px;overflow:hidden" data-reveal="1">
+      <div style="background:#FDEDE9;padding:22px"><div style="font-family:'IBM Plex Mono',monospace;font-size:26px;font-weight:600;letter-spacing:-.02em">2024</div><div style="font-size:13.5px;color:rgba(23,18,15,.62);margin-top:6px;line-height:1.5">first store, Westlands</div></div>
+      <div style="background:#FDEDE9;padding:22px"><div style="font-family:'IBM Plex Mono',monospace;font-size:26px;font-weight:600;letter-spacing:-.02em">120</div><div style="font-size:13.5px;color:rgba(23,18,15,.62);margin-top:6px;line-height:1.5">salaried riders</div></div>
+      <div style="background:#FDEDE9;padding:22px"><div style="font-family:'IBM Plex Mono',monospace;font-size:26px;font-weight:600;letter-spacing:-.02em">3</div><div style="font-size:13.5px;color:rgba(23,18,15,.62);margin-top:6px;line-height:1.5">dark stores in Nairobi</div></div>
+      <div style="background:#FDEDE9;padding:22px"><div style="font-family:'IBM Plex Mono',monospace;font-size:26px;font-weight:600;letter-spacing:-.02em">214</div><div style="font-size:13.5px;color:rgba(23,18,15,.62);margin-top:6px;line-height:1.5">people on the team</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="download" style="background:#E8442A;color:#fff">
+  <div style="max-width:1280px;margin:0 auto;padding:clamp(44px,6vw,90px) clamp(16px,4vw,44px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:clamp(24px,4vw,48px);align-items:center">
+    <div data-reveal="1">
+      <h2 style="margin:0;font-size:clamp(32px,5vw,64px);line-height:.96;letter-spacing:-.045em;font-weight:800;max-width:18ch">Put the duka in your pocket.</h2>
+      <p style="margin:20px 0 0;max-width:42ch;font-size:clamp(16px,1.3vw,19px);line-height:1.5;color:rgba(255,255,255,.88)">Free delivery on your first three orders. No subscription, no minimum, no surge.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:30px">
+        <a href="#top" style="background:#17120F;color:#fff;border-radius:999px;padding:15px 28px;font-size:15px;font-weight:600" style-hover="background:#FBF7F4;color:#17120F">App Store</a>
+        <a href="#top" style="background:rgba(23,18,15,.14);color:#fff;border:1px solid rgba(255,255,255,.55);border-radius:999px;padding:15px 28px;font-size:15px;font-weight:600" style-hover="background:#FBF7F4;color:#17120F">Google Play</a>
+      </div>
+    </div>
+    <div style="display:flex;gap:14px;align-items:center;justify-content:flex-end;flex-wrap:wrap" data-reveal="1">
+      <div style="width:148px;height:148px;background:#fff;border-radius:18px;background-image:repeating-linear-gradient(45deg,rgba(23,18,15,.1) 0 4px,transparent 4px 10px);display:flex;align-items:flex-end;padding:10px">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:rgba(23,18,15,.5);background:#fff;padding:3px 5px;border-radius:3px">QR code</span>
+      </div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;line-height:1.7;color:rgba(255,255,255,.9)">Scan to install<br>Android 8+ · iOS 15+<br>34 MB</div>
+    </div>
+  </div>
+</section>
+
+<dc-import name="Site Footer" hint-size="100%,420px"></dc-import>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+const CATS = [
+  { name: "Fresh produce", count: 214, chip: "#E6F7ED" },
+  { name: "Milk & eggs", count: 68, chip: "#FDEDE9" },
+  { name: "Bread & bakery", count: 41, chip: "#FDEDE9" },
+  { name: "Pantry", count: 386, chip: "#E6F7ED" },
+  { name: "Cold drinks", count: 132, chip: "#FDEDE9" },
+  { name: "Snacks", count: 176, chip: "#E6F7ED" },
+  { name: "Home care", count: 148, chip: "#FDEDE9" },
+  { name: "Baby & care", count: 97, chip: "#E6F7ED" }
+];
+
+class Component extends DCLogic {
+  state = { t: 597, hero: "split" };
+
+  componentDidMount() {
+    this.timer = setInterval(() => this.setState(s => ({ t: s.t > 90 ? s.t - 3 : 597 })), 1000);
+    const reveal = el => { el.style.opacity = "1"; el.style.transform = "none"; };
+    const nodes = Array.from(document.querySelectorAll("[data-reveal]"));
+    nodes.forEach(el => {
+      el.style.opacity = "0";
+      el.style.transform = "translateY(22px)";
+      el.style.transition = "opacity .75s cubic-bezier(.2,.7,.2,1), transform .75s cubic-bezier(.2,.7,.2,1)";
+    });
+    if (typeof IntersectionObserver === "function") {
+      this.io = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) { reveal(e.target); this.io.unobserve(e.target); } });
+      }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+      nodes.forEach(el => this.io.observe(el));
+    }
+    this.fallback = setTimeout(() => nodes.forEach(reveal), 2600);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timer);
+    clearTimeout(this.fallback);
+    if (this.io) this.io.disconnect();
+  }
+
+  renderVals() {
+    const s = this.state;
+    const mm = Math.floor(s.t / 60);
+    const ss = String(s.t % 60).padStart(2, "0");
+    const on = (k, a, b) => (s.hero === k ? a : b);
+    return {
+      clock: mm + ":" + ss,
+      mins: Math.max(1, Math.round(s.t / 60)),
+      progress: Math.round(100 - (s.t / 597) * 92) + "%",
+      cats: CATS,
+      heroSplit: s.hero === "split",
+      heroType: s.hero === "type",
+      heroDark: s.hero === "dark",
+      pickSplit: () => this.setState({ hero: "split" }),
+      pickType: () => this.setState({ hero: "type" }),
+      pickDark: () => this.setState({ hero: "dark" }),
+      splitBg: on("split", "#17120F", "transparent"),
+      splitFg: on("split", "#FBF7F4", "rgba(23,18,15,.6)"),
+      splitBorder: on("split", "#17120F", "rgba(23,18,15,.18)"),
+      typeBg: on("type", "#17120F", "transparent"),
+      typeFg: on("type", "#FBF7F4", "rgba(23,18,15,.6)"),
+      typeBorder: on("type", "#17120F", "rgba(23,18,15,.18)"),
+      darkBg: on("dark", "#17120F", "transparent"),
+      darkFg: on("dark", "#FBF7F4", "rgba(23,18,15,.6)"),
+      darkBorder: on("dark", "#17120F", "rgba(23,18,15,.18)")
+    };
+  }
+}
+
+</script>
+</body>
+</html>

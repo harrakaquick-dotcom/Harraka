@@ -1,0 +1,17 @@
+# Build output and dependencies
+dist
+dist-ssr
+node_modules
+coverage
+
+# Lockfiles
+package-lock.json
+
+# Static assets served as-is (fonts, icons, svgs)
+public
+
+# Claude Design handoff bundle (reference only, not project source)
+claide.design
+
+# Logs
+*.log
