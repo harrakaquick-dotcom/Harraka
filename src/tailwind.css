@@ -1,0 +1,222 @@
+@import "tailwindcss";
+
+/* Self-hosted fonts — files live in public/fonts */
+@font-face {
+  font-family: "Montserrat Alternates";
+  src: url("/fonts/Montserrat_Alternates/MontserratAlternates-Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat Alternates";
+  src: url("/fonts/Montserrat_Alternates/MontserratAlternates-ThinItalic.ttf") format("truetype");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat Alternates";
+  src: url("/fonts/Montserrat_Alternates/MontserratAlternates-ExtraLight.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat Alternates";
+  src: url("/fonts/Montserrat_Alternates/MontserratAlternates-ExtraLightItalic.ttf") format("truetype");
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat Alternates";
+  src: url("/fonts/Montserrat_Alternates/MontserratAlternates-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat Alternates";
+  src: url("/fonts/Montserrat_Alternates/MontserratAlternates-LightItalic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat Alternates";
+  src: url("/fonts/Montserrat_Alternates/MontserratAlternates-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat Alternates";
+  src: url("/fonts/Montserrat_Alternates/MontserratAlternates-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat Alternates";
+  src: url("/fonts/Montserrat_Alternates/MontserratAlternates-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat Alternates";
+  src: url("/fonts/Montserrat_Alternates/MontserratAlternates-MediumItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat Alternates";
+  src: url("/fonts/Montserrat_Alternates/MontserratAlternates-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat Alternates";
+  src: url("/fonts/Montserrat_Alternates/MontserratAlternates-SemiBoldItalic.ttf") format("truetype");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat Alternates";
+  src: url("/fonts/Montserrat_Alternates/MontserratAlternates-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat Alternates";
+  src: url("/fonts/Montserrat_Alternates/MontserratAlternates-BoldItalic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat Alternates";
+  src: url("/fonts/Montserrat_Alternates/MontserratAlternates-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat Alternates";
+  src: url("/fonts/Montserrat_Alternates/MontserratAlternates-ExtraBoldItalic.ttf") format("truetype");
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat Alternates";
+  src: url("/fonts/Montserrat_Alternates/MontserratAlternates-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat Alternates";
+  src: url("/fonts/Montserrat_Alternates/MontserratAlternates-BlackItalic.ttf") format("truetype");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Notable";
+  src: url("/fonts/Notable/Notable-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Caveat";
+  src: url("/fonts/Caveat-VariableFont_wght.ttf") format("truetype-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  /* Brand — matches the app's Flutter palette */
+  --color-primary: #e8442a; /* Color(0xFFE8442A) */
+  --color-primary-dark: #b8301a; /* Color(0xFFB8301A) — hover / pressed */
+  --color-primary-light: #fdede9; /* Color(0xFFFDEDE9) — tinted surfaces */
+  --color-secondary: #1faa59; /* Color(0xFF1FAA59) — success, open zones */
+  --color-secondary-light: #e6f7ed; /* Color(0xFFE6F7ED) */
+  --color-secondary-dark: #0f7a3c; /* text on secondary-light, 4.5:1 safe */
+
+  /* Neutrals */
+  --color-ink: #17120f; /* body text, dark sections, footer */
+  --color-canvas: #fbf7f4; /* page background */
+  --color-surface: #ffffff; /* cards, alternating sections */
+  --color-surface-2: #f1ece7; /* map well, insets */
+
+  /* Ink opacities — use as text/border colours, not as backgrounds */
+  --color-ink-70: rgb(23 18 15 / 0.7); /* long-form body copy */
+  --color-ink-62: rgb(23 18 15 / 0.62); /* card body copy */
+  --color-ink-45: rgb(23 18 15 / 0.45); /* mono labels, captions */
+  --color-ink-38: rgb(23 18 15 / 0.38); /* placeholder wordmarks */
+  --color-line: rgb(23 18 15 / 0.12); /* hairline borders, dividers */
+  --color-line-strong: rgb(23 18 15 / 0.18); /* input + chip borders */
+
+  /* On-dark (inside .bg-ink sections) */
+  --color-onink: #fbf7f4;
+  --color-onink-66: rgb(251 247 244 / 0.66);
+  --color-onink-45: rgb(251 247 244 / 0.45);
+  --color-onink-line: rgb(251 247 244 / 0.16);
+
+  /* Type */
+  --font-display: "Montserrat Alternates", "Helvetica Neue", Helvetica, sans-serif;
+  --font-heading: "Notable", "Helvetica Neue", Helvetica, sans-serif;
+  --font-script: "Caveat", cursive;
+  --font-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+
+  /* Radii used across the site */
+  --radius-card: 20px;
+  --radius-tile: 16px;
+  --radius-pill: 999px;
+}
+
+/* Base — same resets the pages ship with */
+@layer base {
+  body {
+    background-color: var(--color-canvas);
+    color: var(--color-ink);
+    /* font-family: var(--font-display); */
+    -webkit-font-smoothing: antialiased;
+    text-wrap: pretty;
+  }
+  a {
+    color: var(--color-primary-dark);
+    text-decoration: none;
+  }
+  a:hover {
+    color: var(--color-primary);
+  }
+  ::selection {
+    background: var(--color-primary-light);
+  }
+}
+
+/* Usage map — how the pages apply these
+   ------------------------------------------------------------------
+   primary         CTA fill, live dot, section numerals, the download band
+   primary-dark    CTA hover, eyebrow labels and links on light ground
+   primary-light   "Now live" badge, active category tile, rider section
+   secondary       "Opening Q4" zone rings on the map
+   secondary-light zone chips  (pair with secondary-dark for text)
+   ink             header text, dark investor section, footer
+   canvas          page background
+   surface         alternating sections, product cards
+   line            every hairline border and grid gap
+   ------------------------------------------------------------------ */
+
+
