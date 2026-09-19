@@ -1,11 +1,9 @@
-import './button.css';
+import ButtonLabel from "./ButtonLabel";
 
 const GetButton = () => {
   return (
-    <button className="btn-fancy px-5 py-2 rounded-pill bg-ink text-surface-2 cursor-pointer">
-      <span className="btn-fancy__label">
-        <span className="btn-fancy__text" data-text="Get the app">Get the app</span>
-      </span>
+    <button className="btn-fancy cursor-pointer rounded-pill bg-ink px-5 py-2 text-surface-2">
+      <ButtonLabel>Get the app</ButtonLabel>
       <svg
         className="btn-fancy__arrow shrink-0"
         viewBox="0 0 24 24"
@@ -19,7 +17,7 @@ const GetButton = () => {
         <path d="M5 12h14M13 6l6 6-6 6" />
       </svg>
     </button>
-  )
-}
+  );
+};
 
 export default GetButton;

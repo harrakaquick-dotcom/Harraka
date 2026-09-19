@@ -1,13 +1,11 @@
-import './button.css';
+import ButtonLabel from "./ButtonLabel";
 
 const Button = () => {
   return (
-    <button className="btn-wipe mr-3 px-5 py-2 rounded-pill border border-ink text-ink cursor-pointer">
-      <span className="btn-wipe__label">
-        <span className="btn-wipe__text" data-text="Bucket">Bucket</span>
-      </span>
+    <button className="btn-wipe cursor-pointer rounded-pill border border-ink px-5 py-2 text-ink">
+      <ButtonLabel>Bucket</ButtonLabel>
     </button>
-  )
-}
+  );
+};
 
 export default Button;

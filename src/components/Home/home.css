@@ -1,0 +1,117 @@
+/* Home-page keyframes — marquee strip and the rider crossing the track. */
+@layer components {
+  .hk-marquee {
+    animation: hk-marquee 34s linear infinite;
+  }
+  .hk-testimonials {
+    animation: hk-marquee 50s linear infinite;
+  }
+  .hk-ride {
+    animation: hk-ride 6s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  }
+  .hk-toss {
+    animation: hk-toss 3s ease-in infinite;
+  }
+  .hk-pick {
+    animation: hk-pick 6s ease-in-out infinite;
+  }
+
+  .hk-float {
+    animation: hk-float 6s ease-in-out infinite;
+  }
+
+  @keyframes hk-float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  @keyframes hk-marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  /* step 1: an item flies from the shelf into the basket */
+  @keyframes hk-toss {
+    0% {
+      left: 0;
+      opacity: 0;
+      transform: scale(0.6);
+    }
+    15% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    80% {
+      opacity: 1;
+    }
+    100% {
+      left: calc(100% - 2.75rem);
+      opacity: 0;
+      transform: scale(0.4);
+    }
+  }
+  /* step 2: a pick-list box ticks off (colour flips, check appears) */
+  @keyframes hk-pick {
+    0%,
+    8% {
+      background: transparent;
+      border-color: rgb(23 18 15 / 0.25);
+      color: transparent;
+      transform: scale(1);
+    }
+    13% {
+      transform: scale(1.15);
+    }
+    18%,
+    88% {
+      background: var(--color-primary);
+      border-color: var(--color-primary);
+      color: #fff;
+      transform: scale(1);
+    }
+    96%,
+    100% {
+      background: transparent;
+      border-color: rgb(23 18 15 / 0.25);
+      color: transparent;
+      transform: scale(1);
+    }
+  }
+  @keyframes hk-ride {
+    0% {
+      left: 0;
+      opacity: 0;
+    }
+    10%,
+    90% {
+      opacity: 1;
+    }
+    100% {
+      left: calc(100% - 36px);
+      opacity: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hk-marquee,
+    .hk-testimonials,
+    .hk-ride,
+    .hk-toss,
+    .hk-pick,
+    .hk-float {
+      animation: none;
+    }
+    .hk-pick {
+      background: var(--color-primary);
+      border-color: var(--color-primary);
+      color: #fff;
+    }
+  }
+}
