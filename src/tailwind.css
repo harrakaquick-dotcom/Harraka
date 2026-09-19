@@ -3,126 +3,144 @@
 /* Self-hosted fonts — files live in public/fonts */
 @font-face {
   font-family: "Montserrat Alternates";
-  src: url("/fonts/Montserrat_Alternates/MontserratAlternates-Thin.ttf") format("truetype");
+  src: url("/fonts/Montserrat_Alternates/MontserratAlternates-Thin.ttf")
+    format("truetype");
   font-weight: 100;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Montserrat Alternates";
-  src: url("/fonts/Montserrat_Alternates/MontserratAlternates-ThinItalic.ttf") format("truetype");
+  src: url("/fonts/Montserrat_Alternates/MontserratAlternates-ThinItalic.ttf")
+    format("truetype");
   font-weight: 100;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: "Montserrat Alternates";
-  src: url("/fonts/Montserrat_Alternates/MontserratAlternates-ExtraLight.ttf") format("truetype");
+  src: url("/fonts/Montserrat_Alternates/MontserratAlternates-ExtraLight.ttf")
+    format("truetype");
   font-weight: 200;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Montserrat Alternates";
-  src: url("/fonts/Montserrat_Alternates/MontserratAlternates-ExtraLightItalic.ttf") format("truetype");
+  src: url("/fonts/Montserrat_Alternates/MontserratAlternates-ExtraLightItalic.ttf")
+    format("truetype");
   font-weight: 200;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: "Montserrat Alternates";
-  src: url("/fonts/Montserrat_Alternates/MontserratAlternates-Light.ttf") format("truetype");
+  src: url("/fonts/Montserrat_Alternates/MontserratAlternates-Light.ttf")
+    format("truetype");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Montserrat Alternates";
-  src: url("/fonts/Montserrat_Alternates/MontserratAlternates-LightItalic.ttf") format("truetype");
+  src: url("/fonts/Montserrat_Alternates/MontserratAlternates-LightItalic.ttf")
+    format("truetype");
   font-weight: 300;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: "Montserrat Alternates";
-  src: url("/fonts/Montserrat_Alternates/MontserratAlternates-Regular.ttf") format("truetype");
+  src: url("/fonts/Montserrat_Alternates/MontserratAlternates-Regular.ttf")
+    format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Montserrat Alternates";
-  src: url("/fonts/Montserrat_Alternates/MontserratAlternates-Italic.ttf") format("truetype");
+  src: url("/fonts/Montserrat_Alternates/MontserratAlternates-Italic.ttf")
+    format("truetype");
   font-weight: 400;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: "Montserrat Alternates";
-  src: url("/fonts/Montserrat_Alternates/MontserratAlternates-Medium.ttf") format("truetype");
+  src: url("/fonts/Montserrat_Alternates/MontserratAlternates-Medium.ttf")
+    format("truetype");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Montserrat Alternates";
-  src: url("/fonts/Montserrat_Alternates/MontserratAlternates-MediumItalic.ttf") format("truetype");
+  src: url("/fonts/Montserrat_Alternates/MontserratAlternates-MediumItalic.ttf")
+    format("truetype");
   font-weight: 500;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: "Montserrat Alternates";
-  src: url("/fonts/Montserrat_Alternates/MontserratAlternates-SemiBold.ttf") format("truetype");
+  src: url("/fonts/Montserrat_Alternates/MontserratAlternates-SemiBold.ttf")
+    format("truetype");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Montserrat Alternates";
-  src: url("/fonts/Montserrat_Alternates/MontserratAlternates-SemiBoldItalic.ttf") format("truetype");
+  src: url("/fonts/Montserrat_Alternates/MontserratAlternates-SemiBoldItalic.ttf")
+    format("truetype");
   font-weight: 600;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: "Montserrat Alternates";
-  src: url("/fonts/Montserrat_Alternates/MontserratAlternates-Bold.ttf") format("truetype");
+  src: url("/fonts/Montserrat_Alternates/MontserratAlternates-Bold.ttf")
+    format("truetype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Montserrat Alternates";
-  src: url("/fonts/Montserrat_Alternates/MontserratAlternates-BoldItalic.ttf") format("truetype");
+  src: url("/fonts/Montserrat_Alternates/MontserratAlternates-BoldItalic.ttf")
+    format("truetype");
   font-weight: 700;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: "Montserrat Alternates";
-  src: url("/fonts/Montserrat_Alternates/MontserratAlternates-ExtraBold.ttf") format("truetype");
+  src: url("/fonts/Montserrat_Alternates/MontserratAlternates-ExtraBold.ttf")
+    format("truetype");
   font-weight: 800;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Montserrat Alternates";
-  src: url("/fonts/Montserrat_Alternates/MontserratAlternates-ExtraBoldItalic.ttf") format("truetype");
+  src: url("/fonts/Montserrat_Alternates/MontserratAlternates-ExtraBoldItalic.ttf")
+    format("truetype");
   font-weight: 800;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: "Montserrat Alternates";
-  src: url("/fonts/Montserrat_Alternates/MontserratAlternates-Black.ttf") format("truetype");
+  src: url("/fonts/Montserrat_Alternates/MontserratAlternates-Black.ttf")
+    format("truetype");
   font-weight: 900;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Montserrat Alternates";
-  src: url("/fonts/Montserrat_Alternates/MontserratAlternates-BlackItalic.ttf") format("truetype");
+  src: url("/fonts/Montserrat_Alternates/MontserratAlternates-BlackItalic.ttf")
+    format("truetype");
   font-weight: 900;
   font-style: italic;
   font-display: swap;
@@ -174,7 +192,8 @@
   --color-onink-line: rgb(251 247 244 / 0.16);
 
   /* Type */
-  --font-display: "Montserrat Alternates", "Helvetica Neue", Helvetica, sans-serif;
+  --font-display:
+    "Montserrat Alternates", "Helvetica Neue", Helvetica, sans-serif;
   --font-heading: "Notable", "Helvetica Neue", Helvetica, sans-serif;
   --font-script: "Caveat", cursive;
   --font-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
@@ -206,6 +225,7 @@
   }
 }
 
+
 /* Usage map — how the pages apply these
    ------------------------------------------------------------------
    primary         CTA fill, live dot, section numerals, the download band
@@ -218,5 +238,3 @@
    surface         alternating sections, product cards
    line            every hairline border and grid gap
    ------------------------------------------------------------------ */
-
-

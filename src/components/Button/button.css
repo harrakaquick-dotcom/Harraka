@@ -1,0 +1,195 @@
+/* Animated CTA — liquid fill rises from the bottom, label rolls over,
+   arrow slides in, a shine sweeps across, and the button lifts with a glow. */
+@layer components {
+  .btn-fancy {
+    position: relative;
+    isolation: isolate;
+    display: inline-flex;
+    align-items: center;
+    overflow: hidden;
+    transition:
+      transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+      box-shadow 0.35s ease;
+  }
+
+  /* liquid fill */
+  .btn-fancy::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background: linear-gradient(
+      135deg,
+      var(--color-primary),
+      var(--color-primary-dark)
+    );
+    clip-path: circle(0% at 50% 130%);
+    transition: clip-path 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+  }
+
+  /* shine sweep */
+  .btn-fancy::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -60%;
+    z-index: -1;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgb(255 255 255 / 0.45),
+      transparent
+    );
+    transform: skewX(-20deg);
+  }
+
+  .btn-fancy:hover,
+  .btn-fancy:focus-visible {
+    transform: translateY(-3px);
+    box-shadow:
+      0 12px 28px -8px rgb(232 68 42 / 0.6),
+      0 0 0 4px rgb(232 68 42 / 0.15);
+  }
+  .btn-fancy:hover::before,
+  .btn-fancy:focus-visible::before {
+    clip-path: circle(150% at 50% 130%);
+  }
+  .btn-fancy:hover::after,
+  .btn-fancy:focus-visible::after {
+    left: 130%;
+    transition: left 0.8s ease 0.15s;
+  }
+  .btn-fancy:active {
+    transform: translateY(0) scale(0.96);
+    transition-duration: 0.1s;
+  }
+
+  /* label roll-over: text slides up, a copy slides in from below */
+  .btn-fancy__label {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+  }
+  .btn-fancy__text {
+    display: block;
+    transition: transform 0.45s cubic-bezier(0.65, 0, 0.35, 1);
+  }
+  .btn-fancy__text::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 100%;
+  }
+  .btn-fancy:hover .btn-fancy__text,
+  .btn-fancy:focus-visible .btn-fancy__text {
+    transform: translateY(-100%);
+  }
+
+  /* arrow slides in from the left and nudges forward */
+  .btn-fancy__arrow {
+    width: 0;
+    margin-left: 0;
+    opacity: 0;
+    transform: translateX(-8px);
+    transition:
+      width 0.4s ease,
+      margin-left 0.4s ease,
+      opacity 0.4s ease,
+      transform 0.4s ease;
+  }
+  .btn-fancy:hover .btn-fancy__arrow,
+  .btn-fancy:focus-visible .btn-fancy__arrow {
+    width: 1rem;
+    margin-left: 0.5rem;
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* Outline CTA — an ink fill wipes across from the left (and exits to the
+     right), the label rolls over and inverts, and a ring pulses outward. */
+  .btn-wipe {
+    position: relative;
+    isolation: isolate;
+    display: inline-flex;
+    align-items: center;
+    overflow: hidden;
+    transition:
+      color 0.35s ease 0.05s,
+      transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .btn-wipe::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--color-ink);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+  }
+  .btn-wipe:hover,
+  .btn-wipe:focus-visible {
+    color: var(--color-surface-2);
+    transform: translateY(-3px);
+    animation: btn-wipe-ring 0.8s ease-out;
+  }
+  .btn-wipe:hover::before,
+  .btn-wipe:focus-visible::before {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  .btn-wipe:active {
+    transform: translateY(0) scale(0.96);
+    transition-duration: 0.1s;
+  }
+
+  .btn-wipe__label {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+  }
+  .btn-wipe__text {
+    display: block;
+
+    transition: transform 0.45s cubic-bezier(0.65, 0, 0.35, 1);
+  }
+  .btn-wipe__text::after {
+    content: attr(data-text);
+    color: var(--color-onink);
+    position: absolute;
+    left: 0;
+    top: 100%;
+  }
+  .btn-wipe:hover .btn-wipe__text,
+  .btn-wipe:focus-visible .btn-wipe__text {
+    transform: translateY(-100%);
+  }
+
+  @keyframes btn-wipe-ring {
+    from {
+      box-shadow: 0 0 0 0 rgb(23 18 15 / 0.35);
+    }
+    to {
+      box-shadow: 0 0 0 14px rgb(23 18 15 / 0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .btn-fancy,
+    .btn-fancy::before,
+    .btn-fancy::after,
+    .btn-fancy__text,
+    .btn-fancy__arrow,
+    .btn-wipe,
+    .btn-wipe::before,
+    .btn-wipe__text {
+      transition-duration: 0.01ms !important;
+    }
+    .btn-wipe:hover,
+    .btn-wipe:focus-visible {
+      animation: none;
+    }
+  }
+}
