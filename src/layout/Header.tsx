@@ -37,7 +37,7 @@ const Header = () => {
 
       {/* Sticky bar: slides up out of view on scroll down, back in on scroll up. */}
       <nav
-        className={`sticky top-0 z-40 border-b border-b-line/84 bg-canvas/90 font-display backdrop-blur-md transition-[translate,opacity,box-shadow] duration-500 ease-[cubic-bezier(.4,0,.2,1)] motion-reduce:transition-none ${
+        className={`sticky top-0 z-40 border-b border-b-line/84 bg-canvas/90 font-display backdrop-blur-md transition-[translate,opacity,box-shadow] duration-500 ease-in-out motion-reduce:transition-none ${
           isHidden ? "-translate-y-full opacity-0" : "translate-y-0 opacity-100"
         } ${
           scrolled && !isHidden

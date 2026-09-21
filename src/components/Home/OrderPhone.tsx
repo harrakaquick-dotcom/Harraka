@@ -54,7 +54,7 @@ const OrderPhone = ({
         {/* metal frame */}
         <div className="rounded-[52px] bg-linear-to-br from-[#7a716a] via-[#2a2420] to-[#6b635c] p-0.75 shadow-[0_44px_70px_-30px_rgb(23_18_15/0.6),0_18px_30px_-18px_rgb(23_18_15/0.4)]">
           {/* glass bezel */}
-          <div className="relative rounded-[49px] bg-black p-2.5">
+          <div className="relative rounded-[49px] bg-black p-2">
             {/* screen */}
             <div className="relative flex min-h-155 flex-col overflow-hidden rounded-[40px] bg-surface">
               <div
