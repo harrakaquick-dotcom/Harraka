@@ -1,3 +1,7 @@
+// Hamburger bars — they move to the centre and rotate to morph into an X.
+const barClass =
+  "absolute left-1/2 h-0.5 w-5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-current transition-all duration-300 ease-in-out";
+
 const MenuButton = ({
   menuOpen,
   onClick,
@@ -5,10 +9,6 @@ const MenuButton = ({
   menuOpen: boolean;
   onClick: VoidFunction;
 }) => {
-  // Hamburger bars — they move to the centre and rotate to morph into an X.
-  const barClass =
-    "absolute left-1/2 h-0.5 w-5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-current transition-all duration-300 ease-in-out";
-
   return (
     <button
       type="button"

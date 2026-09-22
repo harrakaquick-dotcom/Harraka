@@ -66,24 +66,30 @@
     transition-duration: 0.1s;
   }
 
-  /* label roll-over: text slides up, a copy slides in from below */
-  .btn-fancy__label {
+  /* label roll-over (shared, see ButtonLabel.tsx): the text slides up and a
+     copy slides in from below. The copy's colour comes from --label-roll-color
+     (defaults to the button's own text colour). */
+  .btn-label {
     position: relative;
     display: inline-block;
     overflow: hidden;
+    white-space: nowrap;
   }
-  .btn-fancy__text {
+  .btn-label__text {
     display: block;
     transition: transform 0.45s cubic-bezier(0.65, 0, 0.35, 1);
   }
-  .btn-fancy__text::after {
+  .btn-label__text::after {
     content: attr(data-text);
     position: absolute;
     left: 0;
     top: 100%;
+    color: var(--label-roll-color, inherit);
   }
-  .btn-fancy:hover .btn-fancy__text,
-  .btn-fancy:focus-visible .btn-fancy__text {
+  .btn-fancy:hover .btn-label__text,
+  .btn-fancy:focus-visible .btn-label__text,
+  .btn-wipe:hover .btn-label__text,
+  .btn-wipe:focus-visible .btn-label__text {
     transform: translateY(-100%);
   }
 
@@ -107,14 +113,17 @@
     transform: translateX(0);
   }
 
-  /* Outline CTA — an ink fill wipes across from the left (and exits to the
-     right), the label rolls over and inverts, and a ring pulses outward. */
+  /* Outline CTA — a fill wipes across from the left (and exits to the right),
+     the label rolls over and inverts, and a ring pulses outward.
+     Tune per button with --wipe-bg (fill), --wipe-fg (hover text) and
+     --wipe-ring (glow colour); defaults are ink fill / light text. */
   .btn-wipe {
     position: relative;
     isolation: isolate;
     display: inline-flex;
     align-items: center;
     overflow: hidden;
+    --label-roll-color: var(--wipe-fg, var(--color-onink));
     transition:
       color 0.35s ease 0.05s,
       transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -124,14 +133,14 @@
     position: absolute;
     inset: 0;
     z-index: -1;
-    background: var(--color-ink);
+    background: var(--wipe-bg, var(--color-ink));
     transform: scaleX(0);
     transform-origin: right;
     transition: transform 0.5s cubic-bezier(0.65, 0, 0.35, 1);
   }
   .btn-wipe:hover,
   .btn-wipe:focus-visible {
-    color: var(--color-surface-2);
+    color: var(--wipe-fg, var(--color-surface-2));
     transform: translateY(-3px);
     animation: btn-wipe-ring 0.8s ease-out;
   }
@@ -145,34 +154,12 @@
     transition-duration: 0.1s;
   }
 
-  .btn-wipe__label {
-    position: relative;
-    display: inline-block;
-    overflow: hidden;
-  }
-  .btn-wipe__text {
-    display: block;
-
-    transition: transform 0.45s cubic-bezier(0.65, 0, 0.35, 1);
-  }
-  .btn-wipe__text::after {
-    content: attr(data-text);
-    color: var(--color-onink);
-    position: absolute;
-    left: 0;
-    top: 100%;
-  }
-  .btn-wipe:hover .btn-wipe__text,
-  .btn-wipe:focus-visible .btn-wipe__text {
-    transform: translateY(-100%);
-  }
-
   @keyframes btn-wipe-ring {
     from {
-      box-shadow: 0 0 0 0 rgb(23 18 15 / 0.35);
+      box-shadow: 0 0 0 0 var(--wipe-ring, rgb(23 18 15 / 0.35));
     }
     to {
-      box-shadow: 0 0 0 14px rgb(23 18 15 / 0);
+      box-shadow: 0 0 0 14px transparent;
     }
   }
 
@@ -180,11 +167,10 @@
     .btn-fancy,
     .btn-fancy::before,
     .btn-fancy::after,
-    .btn-fancy__text,
+    .btn-label__text,
     .btn-fancy__arrow,
     .btn-wipe,
-    .btn-wipe::before,
-    .btn-wipe__text {
+    .btn-wipe::before {
       transition-duration: 0.01ms !important;
     }
     .btn-wipe:hover,

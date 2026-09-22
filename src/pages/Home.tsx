@@ -1,22 +1,32 @@
-import { location } from "../Data/Appdata"
+import CategoriesSection from "../components/Home/CategoriesSection";
+import CompanySection from "../components/Home/CompanySection";
+import CoverageSection from "../components/Home/CoverageSection";
+import DownloadBand from "../components/Home/DownloadBand";
+import Hero from "../components/Home/Hero";
+import HowItWorks from "../components/Home/HowItWorks";
+import InvestorSection from "../components/Home/InvestorSection";
+import Marquee from "../components/Home/Marquee";
+import PressStrip from "../components/Home/PressStrip";
+import Testimonials from "../components/Home/Testimonials";
+import { useDeliveryClock } from "../components/Home/useDeliveryClock";
 
 const Home = () => {
+  const delivery = useDeliveryClock();
+
   return (
-    <div>
-     Home
+    <div className="max-w-full overflow-x-hidden font-display">
+      <Hero {...delivery} />
+      <Marquee />
+      <PressStrip />
+      <CategoriesSection />
+      <HowItWorks clock={delivery.clock} />
+      <CoverageSection />
+      <InvestorSection />
+      <Testimonials />
+      <CompanySection />
+      <DownloadBand />
     </div>
-  )
-}
+  );
+};
 
-export default Home
-
-
-
-const Live = ()=>{
-  return (
-    <div className="w-fit flex justify-between items-center gap-3 bg-primary-light border border-primary rounded-pill text-xs text-primary-dark px-2 py-1">
-       <span className="live-dot" aria-hidden="true" />
-       <h2 className="uppercase ">now live in {location}</h2>
-    </div>
-  )
-}
+export default Home;

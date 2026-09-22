@@ -2,4 +2,11 @@ export const address = ['Harraka Retail Kenya Ltd.', 'Chiromo Road, Westlands', 
 export const email_address = 'harrakaquick@gmail.com';
 export const phone_number = '8792 22 2212';
 
-export const location = 'Nibrobi'
+export const location = 'Nairobi';
+
+
+export const numberOfDev = 4;
+export const numberOfStore = 2;
+export const numberOfRider = 6;
+
+export const Since = 2026;
