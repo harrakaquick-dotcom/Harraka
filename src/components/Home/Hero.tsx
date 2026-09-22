@@ -26,7 +26,7 @@ const Hero = ({ clock, mins, progress }: DeliveryClock) => {
             <br />
             ten minutes
             <br />
-            from your door.
+            from your door<span className="text-primary">.</span>
           </h1>
           <p className="mt-5.5 max-w-[46ch] text-[clamp(16px,1.3vw,19px)] leading-[1.55] text-ink/68">
             Harraka stocks the everyday basket — fresh produce, milk, bread,
