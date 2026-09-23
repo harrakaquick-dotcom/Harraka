@@ -33,7 +33,7 @@ const AboutHero = () => {
         <span className="uppercase">building since {Since}</span>
       </div>
 
-      <h1 className="mt-4.5 max-w-[24ch] text-[clamp(34px,5.4vw,70px)] font-bold leading-[.96] tracking-[-0.05em]">
+      <h1 className="mt-4.5 max-w-[24ch] text-[clamp(34px,5.4vw,70px)] font-bold leading-[.96] tracking-tighter">
         {aboutIntro.title}
       </h1>
       <p className="mt-5 max-w-[62ch] text-[clamp(16px,1.3vw,19px)] leading-[1.55] text-ink/66">

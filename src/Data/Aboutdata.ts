@@ -14,23 +14,36 @@ export const companyStory = {
     "The first Harraka store was 40 square metres behind a hardware shop on Chiromo Road, stocked with 180 items and served by three riders on borrowed bikes. We picked that street because we could measure it: every home within two kilometres, and a delivery window we could actually defend.",
     `Today the model is the same, only tighter. ${numberOfStore} purpose-built dark stores, 2,400 items, ${numberOfRider} salaried riders, and a median delivery under eleven minutes across seven Nairobi zones. We buy for the whole city, so a litre of milk costs less through the app than at the shop on the corner.`,
     `We are a Kenyan company, registered in Nairobi, with a team of ${numberOfDev} people. Every rider is on payroll with NHIF and NSSF from their first shift.`,
-  ],
+  ],  
 };
 
-export const values = [
+// Day-1 → today growth, read alongside the story paragraphs above.
+export const growthStats = [
+  { from: "1 store", to: `${numberOfStore} stores` },
+  { from: "180 items", to: "2,400+ items" },
+  { from: "3 riders", to: `${numberOfRider} riders` },
+];
+
+export type ValueId = "pricing" | "delivery" | "riders" | "supply";
+
+export const values: { id: ValueId; title: string; text: string }[] = [
   {
+    id: "pricing",
     title: "Cheaper than the alternative",
     text: "If an item costs more through Harraka than at a duka on the same street, that is a pricing bug and we fix it that week.",
   },
   {
+    id: "delivery",
     title: "Ten minutes, or the fee is ours",
     text: "Past twenty minutes the delivery fee comes off the order automatically. No claim to file, no support queue.",
   },
   {
+    id: "riders",
     title: "Riders on payroll",
     text: "A monthly wage, eight-hour shifts, statutory cover, and a bike we own and maintain. Speed is a routing problem, not a rider problem.",
   },
   {
+    id: "supply",
     title: "Kenyan supply first",
     text: "Produce comes off contracts with farms in Kiambu and Nakuru, bought weekly at agreed prices rather than on the spot market.",
   },
