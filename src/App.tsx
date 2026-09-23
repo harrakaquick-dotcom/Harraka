@@ -3,6 +3,7 @@ import Applayout from "./layout/Applayout";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import About from "./pages/About";
+import Cart from "./pages/Cart";
 
 const App = () => {
   const routes = createBrowserRouter([
@@ -17,6 +18,10 @@ const App = () => {
         {
           path: "/about",
           element: <About />,
+        },
+        {
+          path: "/cart",
+          element: <Cart />,
         },
       ],
     },

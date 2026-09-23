@@ -1,4 +1,3 @@
-
 /* Live dot — a breathing glow plus two staggered rings radiating outward. */
 @layer components {
   .live-dot {
@@ -103,5 +102,24 @@
     .loc-dot::before {
       animation: none;
     }
+  }
+}
+
+/* Page transition — the header's cart button navigates to /cart inside a
+   View Transition (Button.tsx). Browsers without support (no ::view-
+   transition-* pseudo-elements) just navigate instantly; no fallback CSS
+   needed for them. */
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 0.45s;
+    animation-timing-function: cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
   }
 }

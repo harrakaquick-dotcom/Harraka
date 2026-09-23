@@ -1,4 +1,4 @@
-import { ChevronRight, House } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Since } from "../../Data/Appdata";
 import { aboutIntro } from "../../Data/Aboutdata";
