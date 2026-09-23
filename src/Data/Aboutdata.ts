@@ -52,15 +52,15 @@ export const values: { id: ValueId; title: string; text: string }[] = [
 // The first milestone is highlighted in the timeline.
 export const milestones = [
   {
-    when: "2024 · Q2",
+    when: "2024 ",
     text: "First store opens in Westlands. 180 items, three riders, 40 orders a day.",
   },
   {
-    when: "2025 · Q1",
+    when: "2025",
     text: "Kilimani and CBD stores open. M-Pesa checkout ships. Median delivery drops under 12 minutes.",
   },
   {
-    when: "2025 · Q4",
+    when: "2025",
     text: "Riders move to salaried contracts. Farm contracts replace spot buying for produce.",
   },
   {

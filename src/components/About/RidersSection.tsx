@@ -4,7 +4,6 @@ import Reveal from "../Home/Reveal";
 import Section from "../Home/Section";
 import { Eyebrow, sectionTitleClass } from "../Home/SectionHeader";
 
-// Anchored as #riders — the Home company section and the footer link here.
 const RidersSection = () => {
   return (
     <Section
