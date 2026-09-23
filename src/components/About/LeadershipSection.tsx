@@ -1,16 +1,8 @@
 import { team } from "../../Data/Aboutdata";
+import Img from "../Image/Img";
 import Reveal from "../Home/Reveal";
 import Section from "../Home/Section";
 import { Eyebrow } from "../Home/SectionHeader";
-
-// Striped placeholder until real portraits are shot.
-const PortraitPlaceholder = () => (
-  <div className="flex h-37.5 items-end bg-[repeating-linear-gradient(135deg,rgb(23_18_15/0.07)_0_1px,transparent_1px_7px)] p-2.5">
-    <span className="rounded-[3px] bg-canvas px-1.25 py-0.75 font-mono text-[9px] uppercase tracking-[.07em] text-ink/40">
-      portrait
-    </span>
-  </div>
-);
 
 const LeadershipSection = () => {
   return (
@@ -25,7 +17,11 @@ const LeadershipSection = () => {
             key={member.name}
             className="overflow-hidden rounded-[18px] border border-line bg-canvas transition-[translate,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-[0_18px_30px_-20px_rgb(23_18_15/0.35)]"
           >
-            <PortraitPlaceholder />
+            <Img
+              src={member.image}
+              alt={member.name}
+              className="h-37.5 w-full object-cover"
+            />
             <div className="px-4.5 pb-4.5 pt-4">
               <div className="text-base font-bold tracking-[-0.02em]">
                 {member.name}

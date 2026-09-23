@@ -3,6 +3,7 @@ import { ArrowRightIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 import Button from "../components/Button/Button";
 import GetButton from "../components/Button/GetButton";
+import Img from "../components/Image/Img";
 import MenuButton from "../components/Button/MenuButton";
 import { navItems } from "../Data/navigation";
 import TopNav from "./TopNav";
@@ -48,10 +49,10 @@ const Header = () => {
         <div className="relative flex w-full items-center justify-between p-3 lg:pr-6">
           <div className="flex items-center">
             <Link to="/">
-              <img
+              <Img
                 src="./icons/harraka_logo_with_text.png"
                 alt="Harraka"
-                className="h-auto w-36 sm:w-45"
+                className="w-36 sm:w-45"
               />
             </Link>
             <ul className="hidden items-center lg:flex">

@@ -56,8 +56,15 @@ export const milestones = [
   },
 ];
 
-// Placeholder names and bios — swap for the real team and add portraits.
-export const team = [
+// Placeholder names and bios — swap for the real team. Portraits go in
+// public/images (e.g. image: "/images/team/amina.jpg"); without one, or if it
+// fails to load, <Img> shows public/images/placeholder.svg.
+export const team: {
+  name: string;
+  role: string;
+  note: string;
+  image?: string;
+}[] = [
   {
     name: "Amina Yusuf",
     role: "Co-founder & CEO",
