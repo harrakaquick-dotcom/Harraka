@@ -5,9 +5,9 @@ import Section from "./Section";
 
 // Placeholder QR block — replace with the real install QR code.
 const QrPlaceholder = () => (
-  <div className="flex size-37 items-end rounded-[18px] bg-surface bg-[repeating-linear-gradient(45deg,rgb(23_18_15/0.1)_0_4px,transparent_4px_10px)] p-2.5">
+  <div className="flex size-37 items-end rounded-[18px] bg-surface /bg-[repeating-linear-gradient(45deg,rgb(23_18_15/0.1)_0_4px,transparent_4px_10px)] p-2.5">
     {/* here the Qr code goes */}
-    <Img src="/icons/harraka_ap_icon.png" className="relative" alt="" />
+    <Img src="/icons/harraka_app_icon.png" className="relative" alt="" />
     <span className="rounded-[3px] bg-surface px-1.25 py-0.75 font-mono text-[9px] uppercase tracking-[.06em] text-ink/50 absolute">
       QR code
     </span>

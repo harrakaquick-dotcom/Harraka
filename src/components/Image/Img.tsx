@@ -1,6 +1,8 @@
 import { useState, type ImgHTMLAttributes } from "react";
 
-export const PLACEHOLDER_IMAGE = "/images/placeholder.png";
+// Harraka bag photo, 1200×912. The .webp (≈37 KB) is served; placeholder.png
+// (≈1.2 MB) is the source file — re-export the webp if you replace it.
+export const PLACEHOLDER_IMAGE = "/images/placeholder.webp";
 
 // Last resort when even the placeholder file can't load: the H mark from the
 // app icon drawn inline, so it needs no network request and can't fail.
@@ -33,8 +35,8 @@ const InlineFallback = ({
 
 // <img> that falls back to the placeholder in public/images: it sits behind
 // the image while it loads, and replaces it if the src is missing or fails.
-// The placeholder is always fitted whole (contain) on its own tint, so the
-// Harraka bag isn't cropped in wide or short slots. State is keyed by src, so
+// The placeholder covers the slot, centred on the bag (the photo's edges are
+// plain background, so cropping them loses nothing). State is keyed by src, so
 // passing a new src retries it. If the placeholder itself fails, it drops to
 // <InlineFallback>.
 const Img = ({
@@ -62,17 +64,17 @@ const Img = ({
       {...props}
       src={failed ? PLACEHOLDER_IMAGE : src}
       alt={alt}
-      className={`${failed || loading ? "bg-primary-light h-full" : ""} ${className}`}
+      className={`${failed || loading ? "bg-primary-light bg-contain" : ""} ${className}`}
       style={
         failed
-          ? { ...style, objectFit: "contain" }
+          ? { ...style, objectFit: "cover", objectPosition: "center" }
           : loading
             ? {
                 ...style,
                 backgroundImage: `url(${PLACEHOLDER_IMAGE})`,
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
-                backgroundSize: "contain",
+                backgroundSize: "cover",
               }
             : style
       }
@@ -83,7 +85,7 @@ const Img = ({
       onError={(e) => {
         if (failed) setPlaceholderFailed(true);
         else setFailedSrc(src);
-          onError?.(e);
+        onError?.(e);
       }}
     />
   );

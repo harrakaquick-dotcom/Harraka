@@ -66,22 +66,22 @@ export const team: {
   image?: string;
 }[] = [
   {
-    name: "Amina Yusuf",
+    name: "Naquib Alam",
     role: "Co-founder & CEO",
     note: "Ran the Westlands pilot out of a 40 sqm room. Previously retail operations at a regional FMCG distributor.",
   },
   {
-    name: "David Kariuki",
+    name: "Nuranee Shaikh",
     role: "Co-founder & COO",
     note: "Built the store layout and picking standard. Fifteen years in cold-chain logistics across East Africa.",
   },
   {
-    name: "Wanjiru Njoroge",
+    name: "------------",
     role: "Head of Supply",
     note: "Holds the farm contracts in Kiambu and Nakuru and the weekly price book.",
   },
   {
-    name: "Samuel Otieno",
+    name: "Rizwan shaikh",
     role: "Head of Engineering",
     note: "Owns the app, the routing engine, and the ten-minute promise on the dispatch side.",
   },
@@ -89,7 +89,7 @@ export const team: {
 
 export const riderPerks = [
   { label: "Monthly base", value: "KSh 28,000" },
-  { label: "Bike & charging", value: "On us" },
+  { label: "Bike & charging", value: "On you" },
   { label: "Shift length", value: "8 hours" },
   { label: "Average distance", value: "1.8 km / drop" },
 ];
