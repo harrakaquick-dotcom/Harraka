@@ -6,7 +6,7 @@ import ButtonLabel from "./ButtonLabel";
 // and .cart-plus animations in button.css are kept ready for a future
 // per-product "Add to cart" button once the Shop route/catalogue exists
 // (see CLAUDE.md); this button doesn't add anything, so it doesn't use them.
-const Button = () => {
+const Button = ({ count = 0 }: { count?: number }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -40,7 +40,7 @@ const Button = () => {
         <path d="M3.103 6.034h17.794" />
         <path d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z" />
       </svg>
-      <ButtonLabel>Basket</ButtonLabel>
+      <ButtonLabel>{count > 0 ? `Basket · ${count}` : "Basket"}</ButtonLabel>
     </button>
   );
 };

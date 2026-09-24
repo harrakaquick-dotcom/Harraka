@@ -5,6 +5,7 @@ import NotFound from "./pages/NotFound";
 import About from "./pages/About";
 import Cart from "./pages/Cart";
 import Contact from "./pages/Contact";
+import Shop from "./pages/Shop";
 
 const App = () => {
   const routes = createBrowserRouter([
@@ -27,6 +28,10 @@ const App = () => {
         {
           path: "/contact",
           element: <Contact />,
+        },
+        {
+          path: "/shop",
+          element: <Shop />,
         },
       ],
     },

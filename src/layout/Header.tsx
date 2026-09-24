@@ -9,14 +9,14 @@ import { navItems } from "../Data/navigation";
 import TopNav from "./TopNav";
 import { useHeaderScroll } from "./useHeaderScroll";
 
-const HeaderActions = () => (
+const HeaderActions = ({ cartCount }: { cartCount: number }) => (
   <div className="flex items-center gap-3">
-    <Button />
+    <Button count={cartCount} />
     <GetButton />
   </div>
 );
 
-const Header = () => {
+const Header = ({ cartCount }: { cartCount: number }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const closeMenu = () => setMenuOpen(false);
   const { hidden, scrolled } = useHeaderScroll();
@@ -37,8 +37,6 @@ const Header = () => {
   return (
     <>
       <TopNav />
-
-      {/* Sticky bar: slides up out of view on scroll down, back in on scroll up. */}
       <nav
         className={`sticky top-0 z-40 border-b border-b-line/84 bg-canvas/90 font-display backdrop-blur-md transition-[translate,opacity,box-shadow] duration-500 ease-in-out motion-reduce:transition-none ${
           isHidden ? "-translate-y-full opacity-0" : "translate-y-0 opacity-100"
@@ -76,7 +74,7 @@ const Header = () => {
 
           <div className="flex items-center">
             <div className="hidden sm:block">
-              <HeaderActions />
+              <HeaderActions cartCount={cartCount} />
             </div>
             <MenuButton
               menuOpen={menuOpen}
@@ -107,7 +105,7 @@ const Header = () => {
                 })}
               </ul>
               <div className="mt-5 sm:hidden">
-                <HeaderActions />
+                <HeaderActions cartCount={cartCount} />
               </div>
             </div>
           )}
