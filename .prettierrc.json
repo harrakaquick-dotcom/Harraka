@@ -6,7 +6,6 @@
   "insertPragma": false,
   "singleAttributePerLine": false,
   "bracketSameLine": false,
-  "jsxBracketSameLine": false,
   "jsxSingleQuote": false,
   "printWidth": 80,
   "proseWrap": "preserve",
@@ -21,7 +20,5 @@
   "vueIndentScriptAndStyle": false,
   "experimentalTernaries": false,
   "objectWrap": "preserve",
-  "experimentalOperatorPosition": "end",
-  "filepath": "c:\\Users\\rizwa\\Harraka\\web\\src\\layout\\Header.tsx",
-  "parser": "typescript"
+  "experimentalOperatorPosition": "end"
 }

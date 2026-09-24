@@ -1,12 +1,13 @@
 import LinkButton from "../Button/LinkButton";
+import Img from "../Image/Img";
 import Reveal from "./Reveal";
 import Section from "./Section";
 
 // Placeholder QR block — replace with the real install QR code.
 const QrPlaceholder = () => (
-  <div className="flex size-37 items-end rounded-[18px] bg-surface bg-[repeating-linear-gradient(45deg,rgb(23_18_15/0.1)_0_4px,transparent_4px_10px)] p-2.5">
+  <div className="flex size-37 items-end rounded-[18px] bg-surface /bg-[repeating-linear-gradient(45deg,rgb(23_18_15/0.1)_0_4px,transparent_4px_10px)] p-2.5">
     {/* here the Qr code goes */}
-    <img src="/icons/harraka_app_icon.png" className="relative" alt="" />
+    <Img src="/icons/harraka_app_icon.png" className="relative" alt="" />
     <span className="rounded-[3px] bg-surface px-1.25 py-0.75 font-mono text-[9px] uppercase tracking-[.06em] text-ink/50 absolute">
       QR code
     </span>
@@ -26,8 +27,8 @@ const DownloadBand = () => {
           Put the duka in your pocket.
         </h2>
         <p className="mt-5 max-w-[42ch] text-[clamp(16px,1.3vw,19px)] leading-normal text-white/88">
-          Free delivery on your first three orders. No subscription, no
-          minimum, no surge.
+          Free delivery on your first three orders. No subscription, no minimum,
+          no surge.
         </p>
         <div className="mt-7.5 flex flex-wrap gap-3">
           <LinkButton href="#top" variant="store-dark" size="lg">

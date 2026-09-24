@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Img from "../components/Image/Img";
 import { address, email_address, phone_number } from "../Data/Appdata";
 import { footerColumns } from "../Data/navigation";
 
@@ -9,7 +10,7 @@ const Footer = () => {
         <div className="grid grid-cols-2 gap-x-6 gap-y-9 sm:grid-cols-3 sm:gap-7 lg:grid-cols-4">
           <div className="col-span-2 sm:col-span-3 lg:col-span-1">
             <Link to="/">
-              <img
+              <Img
                 src="./icons/harraka_logo_with_white_text.png"
                 alt="Harraka"
                 width={130}

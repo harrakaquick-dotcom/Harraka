@@ -1,0 +1,46 @@
+/* Product cards fade up as they appear; the basket bar slides up from the
+   bottom edge. Both are skipped for reduced-motion users. */
+@keyframes shop-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes shop-bar-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.shop-rise {
+  animation: shop-rise 0.4s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.shop-bar-in {
+  animation: shop-bar-in 0.45s cubic-bezier(0.2, 0.75, 0.2, 1) both;
+}
+
+/* Hide the horizontal scrollbar on the mobile category strip. */
+.shop-scroll {
+  scrollbar-width: none;
+}
+.shop-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shop-rise,
+  .shop-bar-in {
+    animation: none;
+  }
+}
