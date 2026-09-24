@@ -1,0 +1,37 @@
+/* Focus ring for the contact form fields: a conic gradient that spins while
+   the field inside has focus. The angle is a registered custom property so
+   the browser can animate it. */
+@property --focus-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes focus-ring-spin {
+  to {
+    --focus-angle: 360deg;
+  }
+}
+
+.focus-ring {
+  background: transparent;
+  transition: background-color 0.2s;
+}
+
+.focus-ring:focus-within {
+  background: conic-gradient(
+    from var(--focus-angle),
+    var(--color-primary-dark),
+    var(--color-primary),
+    #ff9a5a,
+    var(--color-primary),
+    var(--color-primary-dark)
+  );
+  animation: focus-ring-spin 2.4s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .focus-ring:focus-within {
+    animation: none;
+  }
+}

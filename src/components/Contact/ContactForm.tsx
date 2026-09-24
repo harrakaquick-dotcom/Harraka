@@ -1,8 +1,15 @@
-import { useState, type ChangeEvent } from "react";
+import { useState, type ChangeEvent, type ReactNode } from "react";
 import { reasons } from "../../Data/Contactdata";
+import "./contact.css";
 
 const inputClass =
-  "rounded-[11px] border border-line-strong bg-canvas px-3.25 py-3 text-[15px] text-ink outline-none placeholder:text-ink/35 focus:outline-2 focus:outline-offset-1 focus:outline-primary";
+  "w-full min-w-0 rounded-[11px] border border-line-strong bg-canvas px-3.25 py-3 text-[15px] text-ink outline-none placeholder:text-ink/35";
+
+const FocusRing = ({ children }: { children: ReactNode }) => (
+  <div className="focus-ring -m-1.5 rounded-[17px] p-[1.5px]">
+    <div className="rounded-2xl bg-surface p-1">{children}</div>
+  </div>
+);
 
 const labelClass = "flex flex-col gap-1.75";
 const labelTextClass =
@@ -65,46 +72,54 @@ const ContactForm = () => {
         ))}
       </div>
 
-      <div className="mt-5.5 grid grid-cols-[repeat(auto-fit,minmax(min(100%,180px),1fr))] gap-3.5">
+      <div className="mt-5.5 grid grid-cols-1 gap-3.5 sm:grid-cols-2">
         <label className={labelClass}>
           <span className={labelTextClass}>Full name</span>
-          <input
-            value={values.name}
-            onChange={field("name")}
-            placeholder="Achieng' Odhiambo"
-            className={inputClass}
-          />
+          <FocusRing>
+            <input
+              value={values.name}
+              onChange={field("name")}
+              placeholder="Achieng' Odhiambo"
+              className={inputClass}
+            />
+          </FocusRing>
         </label>
         <label className={labelClass}>
           <span className={labelTextClass}>Email or phone</span>
-          <input
-            value={values.contact}
-            onChange={field("contact")}
-            placeholder="you@example.co.ke"
-            className={inputClass}
-          />
+          <FocusRing>
+            <input
+              value={values.contact}
+              onChange={field("contact")}
+              placeholder="you@example.co.ke"
+              className={inputClass}
+            />
+          </FocusRing>
         </label>
       </div>
 
       <label className={`${labelClass} mt-3.5`}>
         <span className={labelTextClass}>Your area</span>
-        <input
-          value={values.area}
-          onChange={field("area")}
-          placeholder="Kilimani, Nairobi"
-          className={inputClass}
-        />
+        <FocusRing>
+          <input
+            value={values.area}
+            onChange={field("area")}
+            placeholder="Kilimani, Nairobi"
+            className={inputClass}
+          />
+        </FocusRing>
       </label>
 
       <label className={`${labelClass} mt-3.5`}>
         <span className={labelTextClass}>Message</span>
-        <textarea
-          value={values.message}
-          onChange={field("message")}
-          rows={5}
-          placeholder="What can we help with?"
-          className={`${inputClass} resize-y`}
-        />
+        <FocusRing>
+          <textarea
+            value={values.message}
+            onChange={field("message")}
+            rows={5}
+            placeholder="What can we help with?"
+            className={`${inputClass} block resize-y min-h-20`}
+          />
+        </FocusRing>
       </label>
 
       <button
@@ -126,7 +141,7 @@ const ContactForm = () => {
       </button>
       <p
         aria-live="polite"
-        className="mt-3 text-center font-mono text-[10px] tracking-[.05em] text-ink/45"
+        className="mt-3 text-center font-mono text-[10px] tracking-wider text-ink/45"
       >
         {sent
           ? `Thanks — reference HK-${4400 + values.message.length}. We reply the same working day.`

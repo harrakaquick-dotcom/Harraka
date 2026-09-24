@@ -1,3 +1,5 @@
+import { delivery_email, email_address, phone_number, support_email } from "./Appdata";
+
 export const contactIntro = {
   title: "Talk to a person",
   text: "Support answers in under four minutes during delivery hours. Everything else gets a reply the same working day.",
@@ -6,23 +8,23 @@ export const contactIntro = {
 export const channels = [
   {
     label: "Order support",
-    value: "0790 000 442",
+    value: phone_number,
     text: "In-app chat is fastest. 07:00 – 23:00 daily.",
   },
   {
-    label: "Investors",
-    value: "invest@harraka.co.ke",
-    text: "Deck, cohort data and store P&L on request.",
+    label: "Support",
+    value: support_email,
+    text: "Account, payment and refund questions. Replies the same working day.",
   },
   {
-    label: "Suppliers",
-    value: "supply@harraka.co.ke",
-    text: "Farms, distributors and brand listings.",
+    label: "Delivery",
+    value: delivery_email,
+    text: "Late, missing or wrong items? Include your order number.",
   },
   {
-    label: "Press",
-    value: "press@harraka.co.ke",
-    text: "Logos, founder bios and store photography.",
+    label: "General",
+    value: email_address,
+    text: "Investors, suppliers, press and partnerships.",
   },
 ];
 
